@@ -140,21 +140,21 @@ default_config = {
 # We launch the Ray run-time and execute the `run` function
 # with the default configuration
 
-is_gpu_available = torch.cuda.is_available()
-n_gpus = torch.cuda.device_count()
+# is_gpu_available = torch.cuda.is_available()
+# n_gpus = torch.cuda.device_count()
 
-if is_gpu_available:
-    if not(ray.is_initialized()):
-        ray.init(num_cpus=n_gpus, num_gpus=n_gpus, log_to_driver=False)
+# if is_gpu_available:
+#     if not(ray.is_initialized()):
+#         ray.init(num_cpus=n_gpus, num_gpus=n_gpus, log_to_driver=False)
 
-    run_default = ray.remote(num_cpus=1, num_gpus=1)(run(default_config))
-    objective_default = ray.get(run_default.remote())
-else:
-    if not(ray.is_initialized()):
-        ray.init(num_cpus=1, log_to_driver=False)
-    objective_default = run(default_config)
+#     run_default = ray.remote(num_cpus=1, num_gpus=1)(run(default_config))
+#     objective_default = ray.get(run_default.remote())
+# else:
+#     if not(ray.is_initialized()):
+#         ray.init(num_cpus=1, log_to_driver=False)
+#     objective_default = run(default_config)
 
-print(f"Accuracy Default Configuration:  {objective_default:.3f}")
+# print(f"Accuracy Default Configuration:  {objective_default:.3f}")
 
 
 
