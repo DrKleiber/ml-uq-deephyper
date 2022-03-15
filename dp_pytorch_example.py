@@ -147,12 +147,12 @@ if is_gpu_available:
     if not(ray.is_initialized()):
         ray.init(num_cpus=n_gpus, num_gpus=n_gpus, log_to_driver=False)
 
-    run_default = ray.remote(num_cpus=1, num_gpus=1)(run())
+    run_default = ray.remote(num_cpus=1, num_gpus=1)(run(config: dict))
     objective_default = ray.get(run_default.remote(default_config))
 else:
     if not(ray.is_initialized()):
         ray.init(num_cpus=1, log_to_driver=False)
-    run_default = run()
+    run_default = run(config: dict)
     objective_default = run_default(default_config)
 
 print(f"Accuracy Default Configuration:  {objective_default:.3f}")
