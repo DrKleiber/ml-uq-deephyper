@@ -106,7 +106,8 @@ def build_and_train_model(config:dict):
                     bn_size=4,
                     bottleneck=False,
                     out_activation=default_config['out_activation'])
-
+                    
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     if torch.cuda.device_count() > 1:
       print("Let's use", torch.cuda.device_count(), "GPUs!")
       model = nn.DataParallel(model)
