@@ -23,16 +23,16 @@ from utils.myDataLoader import StarDataset
 is_gpu_available = torch.cuda.is_available()
 n_gpus = torch.cuda.device_count() - 1
 
-if is_gpu_available:
-    print(f"{n_gpus} GPU{'s are' if n_gpus > 1 else ' is'} available.")
-else:
-    print("No GPU available")
-
-if not(ray.is_initialized()):
-    if is_gpu_available:
-        ray.init(num_cpus=n_gpus, num_gpus=n_gpus, log_to_driver=False)
-    else:
-        ray.init(num_cpus=4, log_to_driver=False)
+# if is_gpu_available:
+#     print(f"{n_gpus} GPU{'s are' if n_gpus > 1 else ' is'} available.")
+# else:
+#     print("No GPU available")
+#
+# if not(ray.is_initialized()):
+#     if is_gpu_available:
+#         ray.init(num_cpus=n_gpus, num_gpus=n_gpus, log_to_driver=False)
+#     else:
+#         ray.init(num_cpus=4, log_to_driver=False)
 
 seed = 1
 
