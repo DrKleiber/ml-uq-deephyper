@@ -162,6 +162,8 @@ def run(config):
     return -logger['rmse_test'][-1]
 
 from deephyper.problem import HpProblem
+
+problem = HpProblem()
 problem.add_hyperparameter((1e-4, 1e-2, "log-uniform"), "lr", default_value=1e-3)
 problem.add_hyperparameter((8, 64), "batch_size", default_value=16)
 problem.add_hyperparameter((1e-4, 1e-2, "log-uniform"), "weight_decay", default_value=1e-3)
