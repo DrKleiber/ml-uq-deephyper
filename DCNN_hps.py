@@ -175,7 +175,22 @@ problem.add_hyperparameter((3,5),"block_3",default_value=3)
 problem.add_hyperparameter((8, 64),'init_features', default_value = 32)
 problem.add_hyperparameter((4, 32),'growth_rate', default_value = 16)
 
+default_config = {
+    'block_1':3,
+    'block_2':6,
+    'block_3':3,
+    'growth_rate':16,
+    'init_features':32,
+    'dropout_rate': 0.0,
+    'out_activation': 'relu',
+    'lr': 1e-3,
+    'batch_size': 16,
+    'weight_decay': 1e-3
+}
+
 problem.add_starting_point(**default_config)
+
+from deephyper.evaluator.evaluate import Evaluator
 
 evaluator = Evaluator.create(
     run, method="ray", method_kwargs={
