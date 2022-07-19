@@ -172,8 +172,8 @@ problem.add_hyperparameter((0.0, 0.5), "dropout_rate", default_value=0.0)
 problem.add_hyperparameter((3,5),"block_1",default_value=3)
 problem.add_hyperparameter((4,6),"block_2",default_value=6)
 problem.add_hyperparameter((3,5),"block_3",default_value=3)
-Problem.add_hyperparameter((8, 64),'init_features', default_value = 32)
-Problem.add_hyperparameter((4, 32),'growth_rate', default_value = 16)
+problem.add_hyperparameter((8, 64),'init_features', default_value = 32)
+problem.add_hyperparameter((4, 32),'growth_rate', default_value = 16)
 
 problem.add_starting_point(**default_config)
 
