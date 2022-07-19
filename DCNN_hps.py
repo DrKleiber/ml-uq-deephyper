@@ -18,7 +18,7 @@ import torch.optim as optim
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from models.DenseNet_2D import DenseNet
-from utils.myDataLoader import StarDataset
+from utils.DataLoader_2D import StarDataset
 
 is_gpu_available = torch.cuda.is_available()
 n_gpus = torch.cuda.device_count() - 1
