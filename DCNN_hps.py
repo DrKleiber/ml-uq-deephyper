@@ -9,7 +9,7 @@ import json
 import os
 import pathlib
 import shutil
-import glob
+from glob import glob
 
 import torch
 from torch import nn
