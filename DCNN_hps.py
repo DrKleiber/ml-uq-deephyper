@@ -45,6 +45,8 @@ np.random.seed(seed)
 random.seed(seed)
 
 " select data files for training, randomly "
+train_ratio = 0.7
+
 full_index = range(len(input_filelist))
 train_index = random.sample(range(len(input_filelist)),int(train_ratio*len(input_filelist)))
 test_index = list(set(full_index) - set(train_index))
