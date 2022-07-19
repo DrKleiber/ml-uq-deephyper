@@ -188,7 +188,7 @@ default_config = {
     'weight_decay': 1e-3
 }
 
-from deephyper.evaluator.evaluate import Evaluator
+from deephyper.evaluator import Evaluator
 
 evaluator = Evaluator.create(
     run, method="ray", method_kwargs={
