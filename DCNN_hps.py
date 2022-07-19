@@ -188,8 +188,6 @@ default_config = {
     'weight_decay': 1e-3
 }
 
-problem.add_starting_point(**default_config)
-
 from deephyper.evaluator.evaluate import Evaluator
 
 evaluator = Evaluator.create(
