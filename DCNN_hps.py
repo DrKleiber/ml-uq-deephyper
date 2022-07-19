@@ -96,7 +96,7 @@ def build_and_train_model(config:dict):
     n_out_pixels_test = len(test_index) * test_loader.dataset[0][1].numel()
 
     model = DenseNet(in_channels=4, out_channels=1,
-                    blocks=(default_config['block_1'], default_config['block_2'], default_config['block_3'])
+                    blocks=(default_config['block_1'], default_config['block_2'], default_config['block_3']),
                     growth_rate=default_config['growth_rate'],
                     init_features=default_config['init_features'],
                     drop_rate=default_config['dropout_rate'],
