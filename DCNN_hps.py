@@ -92,21 +92,21 @@ def build_and_train_model(config:dict):
     kwargs = {'num_workers': 8,
                   'pin_memory': True} if torch.cuda.is_available() else {}
 
-    train_loader = DataLoader(train_dataset, batch_size=default_config['batch_size'], **kwargs)
-    test_loader = DataLoader(test_dataset, batch_size=default_config['batch_size'], **kwargs)
+    train_loader = DataLoader(train_dataset, batch_size=int(default_config['batch_size']), **kwargs)
+    test_loader = DataLoader(test_dataset, batch_size=int(default_config['batch_size']), **kwargs)
 
     n_out_pixels_train = len(train_index) * train_loader.dataset[0][1].numel()
     n_out_pixels_test = len(test_index) * test_loader.dataset[0][1].numel()
 
     model = DenseNet(in_channels=4, out_channels=1,
-                    blocks=(default_config['block_1'], default_config['block_2'], default_config['block_3']),
-                    growth_rate=default_config['growth_rate'],
-                    init_features=default_config['init_features'],
+                    blocks=(int(default_config['block_1']), int(default_config['block_2']), int(default_config['block_3'])),
+                    growth_rate=int(default_config['growth_rate']),
+                    init_features=int(default_config['init_features']),
                     drop_rate=default_config['dropout_rate'],
                     bn_size=4,
                     bottleneck=False,
                     out_activation=default_config['out_activation'])
-                    
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     if torch.cuda.device_count() > 1:
       print("Let's use", torch.cuda.device_count(), "GPUs!")
