@@ -116,7 +116,7 @@ def build_and_train_model(config:dict):
     optimizer = optim.Adam(model.parameters(), lr=default_config['lr'],
                      weight_decay=default_config['weight_decay'])
 
-    epoch = 100
+    epoch = 200
 
     logger = {}
     logger['rmse_train'] = []
