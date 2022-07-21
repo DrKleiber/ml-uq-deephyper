@@ -156,7 +156,7 @@ def build_and_train_model(config:dict):
             rmse_test = np.sqrt(mse / n_out_pixels_test)
             logger['rmse_test'].append(rmse_test)
 
-    torch.save(model.state_dict(), "./model.pth")
+    torch.save(model.state_dict(), "./hps_cbo_results/save/{}.pth".format(job_id))
     return logger
 
 def run(config):
