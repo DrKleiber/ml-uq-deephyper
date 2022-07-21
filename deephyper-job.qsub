@@ -8,7 +8,7 @@
 # User Configuration
 EXP_DIR=$PWD
 INIT_SCRIPT=$PWD/init-dh-env.sh
-CPUS_PER_NODE=1
+CPUS_PER_NODE=8
 GPUS_PER_NODE=8
 
 # Initialization of environment

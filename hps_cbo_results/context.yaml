@@ -7,11 +7,11 @@ search:
   evaluator:
     address: auto
     callbacks: []
-    num_cpus: 2
+    num_cpus: 16
     num_cpus_per_task: 1
     num_gpus: 16
     num_gpus_per_task: 1
-    num_workers: 2
+    num_workers: 16
     password: null
     ray_kwargs: null
     run_function: function
@@ -39,7 +39,7 @@ search:
   n_initial_points: 10
   n_jobs: 1
   n_points: 10000
-  num_workers: 2
+  num_workers: 16
   problem: HpProblem
   random_state: RandomState
   surrogate_model: RF
