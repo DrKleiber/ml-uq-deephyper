@@ -156,11 +156,11 @@ def build_and_train_model(config:dict):
             rmse_test = np.sqrt(mse / n_out_pixels_test)
             logger['rmse_test'].append(rmse_test)
 
-    torch.save(model.state_dict(), "./hps_cbo_results/save/{}.pth".format(job_id))
-    return logger
+    return model, logger
 
 def run(config):
-    logger = build_and_train_model(config)
+    model, logger = build_and_train_model(config)
+    torch.save(model.state_dict(), "./hps_cbo_results/save/{}.pth".format(job_id))
     return -logger['rmse_test'][-1]
 
 from deephyper.problem import HpProblem
