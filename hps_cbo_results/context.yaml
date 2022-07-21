@@ -1,0 +1,50 @@
+calls:
+- max_evals: 128
+  timeout: null
+search:
+  acq_func: UCB
+  acq_optimizer: auto
+  evaluator:
+    address: auto
+    callbacks: []
+    num_cpus: 2
+    num_cpus_per_task: 1
+    num_gpus: 16
+    num_gpus_per_task: 1
+    num_workers: 2
+    password: null
+    ray_kwargs: null
+    run_function: function
+    run_function_kwargs: {}
+    type: RayEvaluator
+  filter_duplicated: true
+  filter_failures: mean
+  initial_points:
+  - - 16
+    - 3
+    - 6
+    - 3
+    - 0.0
+    - 16
+    - 32
+    - 0.001
+    - relu
+    - 0.001
+  kappa: 1.96
+  log_dir: /lus/theta-fs0/projects/AIASMAAR/ml-uq-deephyper/hps_cbo_results
+  max_failures: 100
+  moo_scalarization_strategy: Chebyshev
+  moo_scalarization_weight: null
+  multi_point_strategy: cl_min
+  n_initial_points: 10
+  n_jobs: 1
+  n_points: 10000
+  num_workers: 2
+  problem: HpProblem
+  random_state: RandomState
+  surrogate_model: RF
+  sync_communication: false
+  type: CBO
+  update_prior: false
+  verbose: 0
+  xi: 0.001

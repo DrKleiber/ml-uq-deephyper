@@ -9,6 +9,7 @@ import ray
 import json
 import pandas as pd
 from functools import partial
+from time import time
 
 import torch
 
@@ -184,4 +185,10 @@ if __name__ == "__main__":
 
     search = AMBS(problem, evaluator)
 
-    search.search(max_evals=10)
+    tic = time()
+
+    search.search(max_evals=100)
+
+    toc = time()
+
+    print ('the search used {} seconds'.format(toc-tic))
