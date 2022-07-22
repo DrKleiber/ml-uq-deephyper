@@ -160,6 +160,7 @@ def build_and_train_model(config:dict):
 
 def run(config):
     model, logger = build_and_train_model(config)
+    job_id = config['job_id']
     torch.save(model.state_dict(), "./hps_cbo_results/save/{}.pth".format(job_id))
     return -logger['rmse_test'][-1]
 
