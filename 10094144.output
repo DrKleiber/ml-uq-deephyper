@@ -1,0 +1,143 @@
+IP Head: 10.230.2.200:6379
+Starting HEAD at thetagpu12
+
+The following have been reloaded with a version change:
+  1) openmpi/openmpi-4.0.5 => openmpi/openmpi-4.1.4_ucx-1.12.1_gcc-9.4.0
+
+1 workers
+Starting WORKER 1 at thetagpu08 with ip=10.230.2.196
+
+The following have been reloaded with a version change:
+  1) openmpi/openmpi-4.0.5 => openmpi/openmpi-4.1.4_ucx-1.12.1_gcc-9.4.0
+
+
+The following have been reloaded with a version change:
+  1) openmpi/openmpi-4.0.5 => openmpi/openmpi-4.1.4_ucx-1.12.1_gcc-9.4.0
+
+Local node IP: 10.230.2.196
+Usage stats collection is enabled. To disable this, add `--disable-usage-stats` to the command that starts the cluster, or run the following command: `ray disable-usage-stats` before starting the cluster. See https://docs.ray.io/en/master/cluster/usage-stats.html for more details.
+
+Local node IP: 10.230.2.200
+Traceback (most recent call last):
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/bin/ray", line 8, in <module>
+    sys.exit(main())
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/ray/scripts/scripts.py", line 2339, in main
+    return cli()
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/ray/scripts/scripts.py", line 1833, in status
+    address = services.canonicalize_bootstrap_address(address)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/ray/_private/services.py", line 451, in canonicalize_bootstrap_address
+    addr = get_ray_address_from_environment()
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/ray/_private/services.py", line 358, in get_ray_address_from_environment
+    addr = _find_gcs_address_or_die()
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/ray/_private/services.py", line 340, in _find_gcs_address_or_die
+    raise ConnectionError(
+ConnectionError: Could not find any running Ray instance. Please specify the one to connect to by setting `--address` flag or `RAY_ADDRESS` environment variable.
+[0m
+The following have been reloaded with a version change:
+  1) openmpi/openmpi-4.0.5 => openmpi/openmpi-4.1.4_ucx-1.12.1_gcc-9.4.0
+
+
+--------------------
+Ray runtime started.
+--------------------
+
+Next steps
+  To connect to this Ray runtime from another node, run
+    ray start --address='10.230.2.200:6379'
+  
+  Alternatively, use the following Python code:
+    import ray
+    ray.init(address='auto', _node_ip_address='10.230.2.200')
+  
+  To connect to this Ray runtime from outside of the cluster, for example to
+  connect to a remote cluster from your laptop directly, use the following
+  Python code:
+    import ray
+    ray.init(address='ray://<head_node_ip_address>:10001')
+  
+  If connection fails, check your firewall settings and network configuration.
+  
+  To terminate the Ray runtime, run
+    ray stop
+
+--block
+  This command will now block until terminated by a signal.
+  Running subprocesses are monitored and a message will be printed if any of them terminate unexpectedly.
+
+--------------------
+Ray runtime started.
+--------------------
+
+To terminate the Ray runtime, run
+  ray stop
+
+--block
+  This command will now block until terminated by a signal.
+  Running subprocesses are monitored and a message will be printed if any of them terminate unexpectedly.
+[2022-07-21 10:21:47,858 I 1537812 1537812] global_state_accessor.cc:357: This node has an IP address of 127.0.1.1, while we can not found the matched Raylet address. This maybe come from when you connect the Ray cluster with a different IP address or connect a container.
+[2m[36m(run pid=1539480)[0m # params 203509, # conv layers 38
+[2m[36m(run pid=1539476)[0m # params 33891, # conv layers 36
+[2m[36m(run pid=1539479)[0m # params 340876, # conv layers 38
+[2m[36m(run pid=1539477)[0m # params 326430, # conv layers 36
+[2m[36m(run pid=1539478)[0m # params 602999, # conv layers 38
+[2m[36m(run pid=1539654)[0m # params 451712, # conv layers 38
+[2m[36m(run pid=1539660)[0m # params 765736, # conv layers 46
+[2m[36m(run pid=1539694)[0m # params 213076, # conv layers 38
+[2m[36m(run pid=485193)[0m # params 103201, # conv layers 36
+[2m[36m(run pid=485174)[0m # params 346634, # conv layers 40
+[2m[36m(run pid=485189)[0m # params 279040, # conv layers 44
+[2m[36m(run pid=485173)[0m # params 154484, # conv layers 40
+[2m[36m(run pid=485181)[0m # params 578317, # conv layers 42
+[2m[36m(run pid=485191)[0m # params 107602, # conv layers 44
+[2m[36m(run pid=485192)[0m # params 113484, # conv layers 34
+[2m[36m(run pid=485114)[0m # params 208164, # conv layers 40
+Traceback (most recent call last):
+  File "DCNN_hps.py", line 205, in <module>
+    results = search.search(max_evals=128)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/deephyper/search/_search.py", line 131, in search
+    self._search(max_evals, timeout)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/deephyper/search/hps/_cbo.py", line 252, in _search
+    new_results = self._evaluator.gather(self._gather_type, size=1)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/deephyper/evaluator/_evaluator.py", line 266, in gather
+    job = task.result()
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/deephyper/evaluator/_evaluator.py", line 207, in _execute
+    job = await self.execute(job)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/deephyper/evaluator/_ray.py", line 84, in execute
+    sol = await self._remote_run_function.remote(
+ray.exceptions.RayTaskError(NameError): [36mray::run()[39m (pid=1539478, ip=10.230.2.200)
+  File "DCNN_hps.py", line 163, in run
+    logger = build_and_train_model(config)
+  File "DCNN_hps.py", line 159, in build_and_train_model
+    torch.save(model.state_dict(), "./hps_cbo_results/save/{}.pth".format(job_id))
+NameError: name 'job_id' is not defined
+[0mTotal of 374 seconds elapsed for process
+
+The following have been reloaded with a version change:
+  1) openmpi/openmpi-4.0.5 => openmpi/openmpi-4.1.4_ucx-1.12.1_gcc-9.4.0
+
+1/8 stopped.
+Some Ray subprcesses exited unexpectedly:
+  gcs_server [exit code=0]
+  ray_client_server [exit code=15]
+  dashboard [exit code=15]
+  raylet [exit code=0]
+  log_monitor [exit code=15]
+
+Remaining processes will be killed.
+2/8 stopped.3/8 stopped.4/8 stopped.5/8 stopped.6/8 stopped.7/8 stopped.[0m8/8 stopped.Stopped all 8 Ray processes.
+[0m
+Some Ray subprcesses exited unexpectedly:
+  raylet [exit code=1]
+
+Remaining processes will be killed.
+[0m

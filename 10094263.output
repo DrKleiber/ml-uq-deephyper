@@ -1,0 +1,111 @@
+IP Head: 10.230.2.203:6379
+Starting HEAD at thetagpu15-gpu5
+
+The following have been reloaded with a version change:
+  1) openmpi/openmpi-4.0.5 => openmpi/openmpi-4.1.4_ucx-1.12.1_gcc-9.4.0
+
+0 workers
+
+The following have been reloaded with a version change:
+  1) openmpi/openmpi-4.0.5 => openmpi/openmpi-4.1.4_ucx-1.12.1_gcc-9.4.0
+
+Usage stats collection is enabled. To disable this, add `--disable-usage-stats` to the command that starts the cluster, or run the following command: `ray disable-usage-stats` before starting the cluster. See https://docs.ray.io/en/master/cluster/usage-stats.html for more details.
+
+Local node IP: 10.230.2.203
+Traceback (most recent call last):
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/bin/ray", line 8, in <module>
+    sys.exit(main())
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/ray/scripts/scripts.py", line 2339, in main
+    return cli()
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/click/core.py", line 1128, in __call__
+    return self.main(*args, **kwargs)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/click/core.py", line 1053, in main
+    rv = self.invoke(ctx)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/click/core.py", line 1659, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/click/core.py", line 1395, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/click/core.py", line 754, in invoke
+    return __callback(*args, **kwargs)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/ray/scripts/scripts.py", line 1833, in status
+    address = services.canonicalize_bootstrap_address(address)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/ray/_private/services.py", line 451, in canonicalize_bootstrap_address
+    addr = get_ray_address_from_environment()
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/ray/_private/services.py", line 358, in get_ray_address_from_environment
+    addr = _find_gcs_address_or_die()
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/ray/_private/services.py", line 340, in _find_gcs_address_or_die
+    raise ConnectionError(
+ConnectionError: Could not find any running Ray instance. Please specify the one to connect to by setting `--address` flag or `RAY_ADDRESS` environment variable.
+[0m
+The following have been reloaded with a version change:
+  1) openmpi/openmpi-4.0.5 => openmpi/openmpi-4.1.4_ucx-1.12.1_gcc-9.4.0
+
+2022-07-21 20:54:26,702	WARNING services.py:2002 -- WARNING: The object store is using /tmp instead of /dev/shm because /dev/shm has only 8589934592 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=10.24gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+
+--------------------
+Ray runtime started.
+--------------------
+
+Next steps
+  To connect to this Ray runtime from another node, run
+    ray start --address='10.230.2.203:6379'
+  
+  Alternatively, use the following Python code:
+    import ray
+    ray.init(address='auto', _node_ip_address='10.230.2.203')
+  
+  To connect to this Ray runtime from outside of the cluster, for example to
+  connect to a remote cluster from your laptop directly, use the following
+  Python code:
+    import ray
+    ray.init(address='ray://<head_node_ip_address>:10001')
+  
+  If connection fails, check your firewall settings and network configuration.
+  
+  To terminate the Ray runtime, run
+    ray stop
+
+--block
+  This command will now block until terminated by a signal.
+  Running subprocesses are monitored and a message will be printed if any of them terminate unexpectedly.
+[2022-07-21 20:56:00,879 I 3094380 3094380] global_state_accessor.cc:357: This node has an IP address of 140.221.68.25, while we can not found the matched Raylet address. This maybe come from when you connect the Ray cluster with a different IP address or connect a container.
+[2m[36m(run pid=3097375)[0m # params 203509, # conv layers 38
+Traceback (most recent call last):
+  File "DCNN_hps.py", line 206, in <module>
+    results = search.search(max_evals=128)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/deephyper/search/_search.py", line 131, in search
+    self._search(max_evals, timeout)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/deephyper/search/hps/_cbo.py", line 252, in _search
+    new_results = self._evaluator.gather(self._gather_type, size=1)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/deephyper/evaluator/_evaluator.py", line 266, in gather
+    job = task.result()
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/deephyper/evaluator/_evaluator.py", line 207, in _execute
+    job = await self.execute(job)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/deephyper/evaluator/_ray.py", line 84, in execute
+    sol = await self._remote_run_function.remote(
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::run()[39m (pid=3097375, ip=10.230.2.203)
+  File "DCNN_hps.py", line 164, in run
+    torch.save(model.state_dict(), "./hps_cbo_results/save/{}.pth".format(job_id))
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/torch/serialization.py", line 376, in save
+    with _open_file_like(f, 'wb') as opened_file:
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/lus/theta-fs0/projects/AIASMAAR/build/dhenv/lib/python3.8/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './hps_cbo_results/save/1.pth'
+[0mTotal of 274 seconds elapsed for process
+
+The following have been reloaded with a version change:
+  1) openmpi/openmpi-4.0.5 => openmpi/openmpi-4.1.4_ucx-1.12.1_gcc-9.4.0
+
+
+Some Ray subprcesses exited unexpectedly:
+  gcs_server [exit code=0]
+  ray_client_server [exit code=15]
+  dashboard [exit code=15]
+  raylet [exit code=1]
+  log_monitor [exit code=-15]
+
+Remaining processes will be killed.
+1/7 stopped.2/7 stopped.3/7 stopped.4/7 stopped.5/7 stopped.6/7 stopped.[0m7/7 stopped.Stopped all 7 Ray processes.
+[0m

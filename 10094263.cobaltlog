@@ -1,0 +1,25 @@
+Jobid: 10094263
+qsub --mode script -A AIASMAAR -n 1 -q single-gpu -t 20 --attrs filesystems=home deephyper-test.qsub
+Fri Jul 22 01:53:36 2022 +0000 (UTC) submitted with cwd set to: /lus/theta-fs0/projects/AIASMAAR/ml-uq-deephyper
+jobid 10094263 submitted from terminal /dev/pts/8
+Fri Jul 22 01:53:51 2022 +0000 (UTC) 
+Fri Jul 22 01:53:51 2022 +0000 (UTC) Command: '/usr/bin/ssh' 'thetagpu15-gpu5' '/usr/bin/cobalt-launcher.py' '--nf' '/var/tmp/cobalt.10094263' '--jobid' '10094263' '--cwd' '/lus/theta-fs0/projects/AIASMAAR/ml-uq-deephyper' '--env' 'COBALT_JOBID=10094263' '/lus/theta-fs0/projects/AIASMAAR/ml-uq-deephyper/deephyper-test.qsub'
+Fri Jul 22 01:53:51 2022 +0000 (UTC) 
+Fri Jul 22 01:53:51 2022 +0000 (UTC) Environment:
+Fri Jul 22 01:53:51 2022 +0000 (UTC) SHELL=/bin/bash
+Fri Jul 22 01:53:51 2022 +0000 (UTC) COBALT_NODEFILE=/tmp/tmptkKw3w
+Fri Jul 22 01:53:51 2022 +0000 (UTC) COBALT_PARTNAME=thetagpu15-gpu5
+Fri Jul 22 01:53:51 2022 +0000 (UTC) COBALT_JOBID=10094263
+Fri Jul 22 01:53:51 2022 +0000 (UTC) COBALT_STARTTIME=1658454820
+Fri Jul 22 01:53:51 2022 +0000 (UTC) LOGNAME=yliu73
+Fri Jul 22 01:53:51 2022 +0000 (UTC) USER=yliu73
+Fri Jul 22 01:53:51 2022 +0000 (UTC) COBALT_ENDTIME=1658456020
+Fri Jul 22 01:53:51 2022 +0000 (UTC) COBALT_PARTSIZE=1
+Fri Jul 22 01:53:51 2022 +0000 (UTC) HOME=/home/yliu73
+Fri Jul 22 01:53:51 2022 +0000 (UTC) COBALT_JOBSIZE=1
+Fri Jul 22 01:53:51 2022 +0000 (UTC) 
+Fri Jul 22 01:53:51 2022 +0000 (UTC) Info: stdin received from /dev/null
+Fri Jul 22 01:53:51 2022 +0000 (UTC) Info: stdout sent to /lus/theta-fs0/projects/AIASMAAR/ml-uq-deephyper/10094263.output
+Fri Jul 22 01:53:51 2022 +0000 (UTC) Info: stderr sent to /lus/theta-fs0/projects/AIASMAAR/ml-uq-deephyper/10094263.error
+Fri Jul 22 01:53:51 2022 +0000 (UTC) 
+Fri Jul 22 01:59:11 2022 +0000 (UTC) Info: task completed normally with an exit code of 0; initiating job cleanup and removal

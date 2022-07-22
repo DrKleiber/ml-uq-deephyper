@@ -1,0 +1,66 @@
+#!/bin/bash
+#COBALT -A AIASMAAR
+#COBALT -n 1
+#COBALT -q single-gpu
+#COBALT -t 20
+#COBALT --attrs filesystems=home
+
+# User Configuration
+EXP_DIR=$PWD
+INIT_SCRIPT=$PWD/init-dh-env.sh
+CPUS_PER_NODE=1
+GPUS_PER_NODE=1
+
+# Initialization of environment
+source $INIT_SCRIPT
+
+# Getting the node names
+mapfile -t nodes_array -d '\n' < $COBALT_NODEFILE
+
+head_node=${nodes_array[0]}
+head_node_ip=$(dig $head_node a +short | awk 'FNR==2')
+
+# Starting the Ray Head Node
+port=6379
+ip_head=$head_node_ip:$port
+export ip_head
+echo "IP Head: $ip_head"
+
+echo "Starting HEAD at $head_node"
+ssh -tt $head_node_ip "source $INIT_SCRIPT; cd $EXP_DIR; \
+    ray start --head --node-ip-address=$head_node_ip --port=$port \
+    --num-cpus $CPUS_PER_NODE --num-gpus $GPUS_PER_NODE --block" &
+
+# Optional, though may be useful in certain versions of Ray < 1.0.
+sleep 10
+
+# Number of nodes other than the head node
+worker_num=$((${#nodes_array[*]} - 1))
+echo "$worker_num workers"
+
+for ((i = 1; i <= worker_num; i++)); do
+    node_i=${nodes_array[$i]}
+    node_i_ip=$(dig $node_i a +short | awk 'FNR==1')
+    echo "Starting WORKER $i at $node_i with ip=$node_i_ip"
+    ssh -tt $node_i_ip "source $INIT_SCRIPT; cd $EXP_DIR; \
+        ray start --address $ip_head \
+        --num-cpus $CPUS_PER_NODE --num-gpus $GPUS_PER_NODE --block" &
+    sleep 5
+done
+
+# Check the status of the Ray cluster
+ssh -tt $head_node_ip "source $INIT_SCRIPT && ray status"
+
+start_time="$(date -u +%s)"
+
+# Run the search
+ssh -tt $head_node_ip "source $INIT_SCRIPT && cd $EXP_DIR && \
+    python DCNN_hps.py"
+
+end_time="$(date -u +%s)"
+
+elapsed="$(($end_time-$start_time))"
+echo "Total of $elapsed seconds elapsed for process"
+
+# Stop de Ray cluster
+ssh -tt $head_node_ip "source $INIT_SCRIPT && ray stop"
