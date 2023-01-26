@@ -35,14 +35,14 @@ n_gpus = torch.cuda.device_count() - 1
 #     else:
 #         ray.init(num_cpus=4, log_to_driver=False)
 
-seed = 1
+# seed = 1
 
 "perform HPS on a reduced (10%) dataset"
 input_filelist = sorted(glob('../Datasets_coarse/input_*0.pt'))
 output_filelist = sorted(glob('../Datasets_coarse/output_*0.pt'))
 
-np.random.seed(seed)
-random.seed(seed)
+# np.random.seed(seed)
+# random.seed(seed)
 
 " select data files for training, randomly "
 train_ratio = 0.7
@@ -207,4 +207,4 @@ evaluator = Evaluator.create(
 
 from deephyper.search.hps import CBO
 search = CBO(problem, evaluator, initial_points=[problem.default_configuration], log_dir="hps_cbo_results", random_state=42)
-results = search.search(max_evals=128)
+results = search.search(max_evals=256)
